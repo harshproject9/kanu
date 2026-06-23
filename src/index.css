@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  overflow-x: hidden;
+  background: #FFE4EC;
+  min-height: 100vh;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Retro Game Box */
+.game-screen {
+  background: #FFE4EC;
+  border: 8px solid #000;
+  border-radius: 20px;
+  box-shadow: 
+    inset 0 0 0 4px #FFFEF7,
+    inset 0 0 0 8px #000,
+    0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Retro Panel */
+.retro-panel {
+  background: #FFFEF7;
+  border: 4px solid #000;
+  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Pixel Button */
+.pixel-button {
+  background: #FFB6C1;
+  color: #000;
+  border: 4px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.1s;
+}
+
+.pixel-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.pixel-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #000;
+}
+
+/* Typewriter effect */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40) forwards;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Screen shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+/* Pixel border */
+.pixel-border {
+  border: 4px solid #000;
+  box-shadow: 
+    0 0 0 1px #FFB6C1,
+    0 0 0 2px #000;
+}
+
+/* HP Bar */
+.hp-bar {
+  background: #000;
+  height: 20px;
+  border: 3px solid #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.hp-fill {
+  background: linear-gradient(to bottom, #4ade80 0%, #22c55e 100%);
+  height: 100%;
+  transition: width 0.5s;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Dialog box */
+.dialog-box {
+  background: #FFFEF7;
+  border: 6px solid #000;
+  padding: 20px;
+  position: relative;
+  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dialog-box::before {
+  content: '▼';
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  animation: pulse 1s infinite;
+}
+
+/* Loading bar */
+.loading-bar {
+  background: #000;
+  height: 24px;
+  border: 3px solid #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-fill {
+  background: #FFB6C1;
+  height: 100%;
+  animation: loading 2s ease-in-out;
+}
+
+@keyframes loading {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Pixel text */
+.pixel-text {
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+
+/* Stats bar */
+.stat-bar {
+  background: #E5E7EB;
+  height: 16px;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+.stat-fill {
+  background: linear-gradient(to right, #FFB6C1 0%, #FF69B4 100%);
+  height: 100%;
+  transition: width 1s ease-out;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFEF7;
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFB6C1;
+  border: 2px solid #000;
+}
+
+/* Retro select cursor */
+.select-cursor::before {
+  content: '▶';
+  position: absolute;
+  left: -30px;
+  animation: pulse 0.8s infinite;
+}
+
+/* Achievement popup */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.achievement-popup {
+  animation: slideInDown 0.5s ease-out;
+}
+
+/* Pixel heart */
+.pixel-heart {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #FF69B4;
+  transform: rotate(45deg);
+  position: relative;
+  animation: heartbeat 1.5s infinite;
+}
+
+.pixel-heart::before,
+.pixel-heart::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: #FF69B4;
+  position: absolute;
+}
+
+.pixel-heart::before {
+  top: -8px;
+  left: 0;
+}
+
+.pixel-heart::after {
+  left: -8px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: rotate(45deg) scale(1); }
+  50% { transform: rotate(45deg) scale(1.1); }
+}
+
+/* No select on game elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
